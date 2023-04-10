@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mod 2</title>
+  <style>
+    .counter-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 10px;
+      align-items: center;
+      justify-items: center;
+      height: 200px;
+      border: 1px solid black;
+    }
+
+    #counter {
+      font-size: 24px;
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
+
+    #addButton {
+      grid-column: 3 / 4;
+      grid-row: 2 / 3;
+    }
+
+    #subButton {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+  </style>
+</head>
+<body>
+  <h1><center>Module 2: Counter</center></h1>
+  <div class="counter-grid">
+    <div id="counter">0</div>
+    <button id="addButton">Add</button>
+    <button id="subButton">Subtract</button>
+  </div>
+  <script>
+    // Define a Counter class that takes an element ID as an argument
+    class Counter {
+      constructor(elementId) {
+        this.element = document.getElementById(elementId);
+        this.count = 0;
+        this.updateCounter();
+      }
+
+      // Update the counter display with the current count
+      updateCounter() {
+        this.element.innerHTML = this.count;
+      }
+
+      // Add 1 to the count and update the display
+      increment() {
+        this.count++;
+        this.updateCounter();
+      }
+
+      // Subtract 1 from the count and update the display
+      decrement() {
+        this.count--;
+        this.updateCounter();
+      }
+    }
+
+    // Create a new Counter instance for the "counter" element
+    const counter = new Counter("counter");
+
+    // Add event listeners to the add button and subtract button
+    const addButton = document.getElementById("addButton");
+    const subButton = document.getElementById("subButton");
+    addButton.addEventListener("click", () => counter.increment());
+    subButton.addEventListener("click", () => counter.decrement());
+  </script>
+</body>
+</html>
