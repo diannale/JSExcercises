@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<style>
+		input[type="text"] {
+			padding: 10px;
+			font-size: 18px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			margin-bottom: 10px;
+		}
+
+		button {
+			padding: 10px;
+			font-size: 18px;
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			margin-right: 10px;
+		}
+
+		button:hover {
+			background-color: #3e8e41;
+		}
+
+		#result {
+			padding: 10px;
+			font-size: 24px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Calculator</h1>
+	<label>Number 1: </label>
+	<input type="text" id="num1"><br>
+	<label>Number 2: </label>
+	<input type="text" id="num2"><br>
+	<button onclick="add()">Add</button>
+	<button onclick="subtract()">Subtract</button>
+	<button onclick="multiply()">Multiply</button>
+	<button onclick="divide()">Divide</button>
+	<button onclick="reset()">Reset</button>
+	<div id="result"></div>
+
+	<script>
+		function add() {
+			var num1 = Number(document.getElementById("num1").value);
+			var num2 = Number(document.getElementById("num2").value);
+			var result = num1 + num2;
+			document.getElementById("result").innerHTML = "Result: " + result;
+		}
+
+		function subtract() {
+			var num1 = Number(document.getElementById("num1").value);
+			var num2 = Number(document.getElementById("num2").value);
+			var result = num1 - num2;
+			document.getElementById("result").innerHTML = "Result: " + result;
+		}
+
+		function multiply() {
+			var num1 = Number(document.getElementById("num1").value);
+			var num2 = Number(document.getElementById("num2").value);
+			var result = num1 * num2;
+			document.getElementById("result").innerHTML = "Result: " + result;
+		}
+
+		function divide() {
+			var num1 = Number(document.getElementById("num1").value);
+			var num2 = Number(document.getElementById("num2").value);
+			var result = num1 / num2;
+			document.getElementById("result").innerHTML = "Result: " + result;
+		}
+
+		function reset() {
+			document.getElementById("num1").value = "";
+			document.getElementById("num2").value = "";
+			document.getElementById("result").innerHTML = "";
+		}
+	</script>
+</body>
+</html>
