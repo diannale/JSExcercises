@@ -42,16 +42,19 @@ const avengers = [
    }
 ];
 
+// Loop to log each superhero's name to the console
 for (let i = 0; i < avengers.length; i++) {
   console.log(avengers[i].name);
 }
 
+// Loop to log the names of superheroes with primary power super strength
 for (let i = 0; i < avengers.length; i++) {
   if (avengers[i].primary_power === "Super Strength") {
     console.log(avengers[i].name);
   }
 }
 
+// Loop to log the names and ages of superheroes who are 50 years old or older
 for (let i = 0; i < avengers.length; i++) {
   if (avengers[i].age >= 50) {
     console.log(avengers[i].name + " is " + avengers[i].age + " years old.");
