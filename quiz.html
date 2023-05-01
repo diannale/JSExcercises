@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz</title>
+</head>
+<body>
+	<h1>Quiz</h1>
+	<form name="quizForm">
+		<p>1. What is the largest continent on Earth?</p>
+		<input type="radio" name="q1" value="A">A. Africa<br>
+		<input type="radio" name="q1" value="B">B. Asia<br>
+		<input type="radio" name="q1" value="C">C. North America<br>
+
+		<p>2. Who discovered gravity?</p>
+		<input type="radio" name="q2" value="A">A. Isaac Newton<br>
+		<input type="radio" name="q2" value="B">B. Albert Einstein<br>
+		<input type="radio" name="q2" value="C">C. Galileo Galilei<br>
+
+		<p>3. What is the largest species of dolphin?</p>
+		<input type="radio" name="q3" value="A">A. Common dolphin<br>
+		<input type="radio" name="q3" value="B">B. Killer whale<br>
+		<input type="radio" name="q3" value="C">C. Bottlenose dolphin<br>
+
+		<p>4. What is the capital city of Brazil?</p>
+		<input type="radio" name="q4" value="A">A. Buenos Aires<br>
+		<input type="radio" name="q4" value="B">B. Rio de Janeiro<br>
+		<input type="radio" name="q4" value="C">C. Sao Paulo<br>
+
+		<p>5. Who wrote the novel "To Kill a Mockingbird"?</p>
+		<input type="radio" name="q5" value="A">A. William Golding<br>
+		<input type="radio" name="q5" value="B">B. Harper Lee<br>
+		<input type="radio" name="q5" value="C">C. J.D. Salinger<br>
+
+		<button type="button" onclick="calculateScore()">Submit</button>
+	</form>
+
+	<div id="result"></div>
+
+    <script>
+        function calculateScore() {
+    // get the user's answers
+    var q1 = document.forms["quizForm"]["q1"].value;
+    var q2 = document.forms["quizForm"]["q2"].value;
+    var q3 = document.forms["quizForm"]["q3"].value;
+    var q4 = document.forms["quizForm"]["q4"].value;
+    var q5 = document.forms["quizForm"]["q5"].value;
+
+    // set the correct answers
+    var answers = ["B", "A", "B", "C", "B"];
+
+    // calculate the score
+    var score = 0;
+    var result = document.getElementById("result");
+    result.innerHTML = "";
+
+    for (var i = 1; i <= answers.length; i++) {
+        var userAnswer = eval("q" + i);
+        // check if the user's answer is correct
+        if (userAnswer === answers[i - 1]) {
+            score++;
+        } else {
+            result.innerHTML += "Question " + i + ": Incorrect Answer. <br> The correct answer is " + answers[i - 1] + "<br>";
+        }
+    }
+
+    // display the score
+    result.innerHTML += "Your score is " + score;
+}
+
+    </script>
